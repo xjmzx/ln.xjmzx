@@ -63,16 +63,12 @@ const Index = () => {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
         <div className="container px-4 py-16 md:py-24 lg:py-32">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border bg-muted px-4 py-2 text-sm">
-              <Zap className="h-4 w-4 text-primary" />
-              <span className="font-medium">Lightning Network Node Setup</span>
-            </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                ln.fizx.uk
-              </span>{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Setup Guides
+              <span className="inline-flex items-center gap-3 justify-center">
+                <Zap className="h-8 w-8 sm:h-12 sm:w-12 text-primary shrink-0" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  ln Setup Guides
+                </span>
               </span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
