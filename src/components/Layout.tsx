@@ -132,18 +132,21 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer className="border-t border-border px-6 py-5">
-        <div className="max-w-6xl mx-auto flex items-center justify-between text-xs text-muted-foreground font-mono">
+        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-y-2 text-xs text-muted-foreground font-mono">
           <span>ln.fizx.uk</span>
-          <a
-            href="https://shakespeare.diy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-accent/60 hover:text-accent/90 transition-colors"
-          >
-            <span>✦ built with</span>
-            <img src="/shakespeare.svg" alt="" className="h-4 w-4" />
-            <span>shakespeare.diy</span>
-          </a>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            {([
+              ['https://fizx.uk',         'fizx.uk'],
+              ['https://glimpse.fizx.uk', 'glimpse'],
+              ['https://pulse.fizx.uk',   'pulse'],
+              ['https://ln.fizx.uk',      'ln'],
+              ['https://stakes.fizx.uk',  'stakes'],
+              ['https://sonic.fizx.uk',   'sonic'],
+            ] as [string, string][]).map(([href, label]) => (
+              <a key={href} href={href} className="hover:text-primary transition-colors">{label}</a>
+            ))}
+            <span className="text-primary/60 ml-1">✦ built with claude</span>
+          </div>
         </div>
       </footer>
     </div>
