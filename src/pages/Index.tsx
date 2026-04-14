@@ -14,24 +14,28 @@ const Index = () => {
   const guides = [
     {
       title: 'LND on Debian',
+      osHref: 'https://www.debian.org',
       description: 'Complete guide for setting up LND (Lightning Network Daemon) on Debian LTS with ThunderHub, LNDG, and Balance of Satoshis.',
       href: '/lnd/debian',
       icon: Server,
     },
     {
       title: 'LND on Ubuntu',
+      osHref: 'https://ubuntu.com',
       description: 'Complete guide for setting up LND (Lightning Network Daemon) on Ubuntu LTS with ThunderHub, LNDG, and Balance of Satoshis.',
       href: '/lnd/ubuntu',
       icon: Server,
     },
     {
       title: 'phoenixd on Debian',
+      osHref: 'https://www.debian.org',
       description: 'Minimal setup guide for phoenixd Lightning daemon on Debian LTS with phoenixd-dashboard for web management.',
       href: '/phoenixd/debian',
       icon: Zap,
     },
     {
       title: 'phoenixd on Ubuntu',
+      osHref: 'https://ubuntu.com',
       description: 'Minimal setup guide for phoenixd Lightning daemon on Ubuntu LTS with phoenixd-dashboard for web management.',
       href: '/phoenixd/ubuntu',
       icon: Zap,
@@ -72,8 +76,9 @@ const Index = () => {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Comprehensive, minimal-overhead guides for setting up Bitcoin and Lightning Network nodes 
-              on Debian and Ubuntu LTS. Optimized for VPS deployment with pruned backends.
+              Comprehensive, minimal-overhead guides for setting up Bitcoin and Lightning Network nodes
+              on <a href="https://www.debian.org" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline-offset-2">Debian</a> and <a href="https://ubuntu.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline-offset-2">Ubuntu</a> LTS.
+              Optimized for VPS deployment with pruned backends. Built for real-world deployments with minimal resources and maximum security.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="group">
@@ -88,33 +93,6 @@ const Index = () => {
                 </Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container px-4">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why These Guides?</h2>
-            <p className="text-muted-foreground">
-              Built for real-world VPS deployments with minimal resources and maximum security.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {features.map((feature) => (
-              <Card key={feature.title} className="border-2">
-                <CardHeader>
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -135,7 +113,18 @@ const Index = () => {
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/30 group-hover:to-accent/30 transition-colors">
                     <guide.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{guide.title}</CardTitle>
+                  <CardTitle className="text-xl">
+                    {guide.title.replace(/(Debian|Ubuntu)/, '').trimEnd()}{' '}
+                    <a
+                      href={guide.osHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline underline-offset-2"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      {guide.title.match(/(Debian|Ubuntu)/)?.[0]}
+                    </a>
+                  </CardTitle>
                   <CardDescription className="text-base">{guide.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
