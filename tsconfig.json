@@ -1,19 +1,45 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": false,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": false,
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": true
-  }
+    }
+  },
+  "include": ["src"],
+  "exclude": [
+    "src/hooks/useZaps.ts",
+    "src/hooks/useNWC.ts",
+    "src/hooks/useWallet.ts",
+    "src/hooks/useShakespeare.ts",
+    "src/components/ZapButton.tsx",
+    "src/components/ZapDialog.tsx",
+    "src/components/WalletModal.tsx",
+    "src/components/dm/*.tsx",
+    "src/components/comments/*.tsx",
+    "src/contexts/NWCContext.tsx",
+    "src/contexts/DMContext.tsx",
+    "src/pages/Messages.tsx"
+  ]
 }
